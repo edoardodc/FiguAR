@@ -122,15 +122,12 @@
 			isa = PBXGroup;
 			children = (
 				110C34DE23575BFE00D3007B /* AppDelegate.swift */,
-				110C34E223575BFE00D3007B /* ViewController.swift */,
-				119F4A2D235912E4004E6A5F /* Service.swift */,
-				110C350E2357A8A600D3007B /* Figure.swift */,
-				110C35192358B85A00D3007B /* InfoView.swift */,
-				110C351B2358B9AB00D3007B /* CustomButton.swift */,
-				110B0F58235A35C100F325D6 /* HandImagesClassifier.mlmodel */,
-				119F4A2F2359198B004E6A5F /* ButtonDraw.swift */,
+				11B91C2923D0C15E00CB5117 /* Controller */,
+				11B91C2A23D0C16700CB5117 /* View */,
+				11B91C2B23D0C16E00CB5117 /* Model */,
 				119F4A3323591DBF004E6A5F /* Extensions */,
 				110C34E423575BFE00D3007B /* Main.storyboard */,
+				110B0F58235A35C100F325D6 /* HandImagesClassifier.mlmodel */,
 				110C35182358A7ED00D3007B /* fonts */,
 				110C34E023575BFE00D3007B /* art.scnassets */,
 				110C34E723575C0400D3007B /* Assets.xcassets */,
@@ -175,6 +172,33 @@
 				110C35122358A5C500D3007B /* UIColorExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		11B91C2923D0C15E00CB5117 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				110C34E223575BFE00D3007B /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		11B91C2A23D0C16700CB5117 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				110C35192358B85A00D3007B /* InfoView.swift */,
+				110C351B2358B9AB00D3007B /* CustomButton.swift */,
+				119F4A2F2359198B004E6A5F /* ButtonDraw.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11B91C2B23D0C16E00CB5117 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				110C350E2357A8A600D3007B /* Figure.swift */,
+				119F4A2D235912E4004E6A5F /* Service.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

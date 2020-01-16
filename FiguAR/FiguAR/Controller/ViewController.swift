@@ -13,7 +13,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     var timer = Timer()
     var infoView: InfoView?
-
     let cameraRelativePosition = SCNVector3(0, 0, -0.1)
     
     let buttonCreateCube: CustomButton = {
@@ -55,7 +54,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }()
     
     var buttonDraw = ButtonDraw()
-
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -78,10 +76,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var pyramid = Figure(name: "pyramid", imageTexture: UIImage(named: "donbosco.jpg"), numBlocks: 14, nameFile: "Pyramid")
     var parallelepiped = Figure(name: "parallelepiped", imageTexture: UIImage(named: "QrCodeSalesiani.png"), numBlocks: 36, nameFile: "Parallelepiped")
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         sceneView.delegate = self
         sceneView.showsStatistics = false
         let scene = SCNScene(named: "art.scnassets/scene.scn")!
@@ -107,9 +103,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
-    
     //MARK: - AR
-    
     func setupWorldTracking() {
         let configuration = ARWorldTrackingConfiguration()
         sceneView.session.run(configuration)
@@ -136,7 +130,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
     }
-
     
     func createTrackerNode() {
         if trackerNodeShowed == false {
@@ -225,15 +218,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         buttonReset.isHidden = true
         buttonDraw.isHidden = true
     }
-
     
     func session(_ session: ARSession, didFailWithError error: Error) {}
     func sessionWasInterrupted(_ session: ARSession) {}
     func sessionInterruptionEnded(_ session: ARSession) {}
     
-    
     //MARK: - UI
-    
     func addSegmentedControl() {
         view.addSubview(segmentedControl)
         segmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -258,7 +248,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         buttonDraw.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
     }
     
-
     func addInfoView() {
         infoView = InfoView()
         infoView?.bounce(damping: 2, option: [.curveEaseIn, .repeat])
@@ -268,7 +257,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         infoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
     }
 
-    
     @objc func indexChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex{
         case 0:
@@ -305,10 +293,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     //MARK: - TrackingImages
-    
-  var session: ARSession {
+    var session: ARSession {
         return sceneView.session
-  }
+    }
     
     func setupImageTracking() {
         let configuration = ARImageTrackingConfiguration()
@@ -316,11 +303,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             print("Could not load images")
             return
         }
-        
         configuration.trackingImages = trackedImages
         configuration.maximumNumberOfTrackedImages = 1
         session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-        
     }
     
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
@@ -330,17 +315,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             plane.firstMaterial?.diffuse.contents = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
             let planeNode = SCNNode(geometry: plane)
-            
             let sceneLittleCube = SCNScene(named: "art.scnassets/LittleCube.scn")!
             let littleCube = sceneLittleCube.rootNode.childNodes.first!
             littleCube.position = SCNVector3Zero
             planeNode.addChildNode(littleCube)
             node.addChildNode(planeNode)
         }
-        
         return node
     }
-    
-    
-    
 }
